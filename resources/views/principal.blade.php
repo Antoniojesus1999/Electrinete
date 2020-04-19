@@ -78,6 +78,7 @@
 @yield('precios')
 @yield('registro')
 
+
 {{-- @yield('prueba') --}}
 
 

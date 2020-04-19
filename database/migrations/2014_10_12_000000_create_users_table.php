@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('apellidos');
             $table->string('localidad');
             $table->string('metodo');
+            $table->string('admin');
+            $table->string('tipo_vehiculo');
             $table->unsignedInteger('n_alquileres');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

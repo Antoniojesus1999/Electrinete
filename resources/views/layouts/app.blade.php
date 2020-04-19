@@ -43,11 +43,13 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                
+                                <button class="btn btn-outline-danger my-2 mr-5 my-sm-0"  onclick="location.href='{{ route('register') }}'">Registrarse</button>
+
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <button class="btn btn-outline-success my-2 my-sm-0"onclick="location.href='{{ route('login') }}'">Iniciar sesion</button>
                                 </li>
                             @endif
                         @else
@@ -77,6 +79,7 @@
 
         <main class="py-4">
             @yield('content')
+            @yield('homeAdmin')
 
         </main>
 

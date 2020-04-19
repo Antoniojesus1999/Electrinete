@@ -18,20 +18,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/homeAdmin', 'HomeController@homeAdmin')->name('homeAdmin');
 Route::get('/', 'Controller@inicio')->name('inicio');
 Route::post('/register','Auth\RegisterController@register')->name('register');
 
-
-
-
-
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-//Route::get('/register','Auth/RegisterController@showRegistrationForm')->name('register');
-
-*/ 
-/*
-
-*/
