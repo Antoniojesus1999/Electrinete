@@ -1,18 +1,23 @@
 @extends('layouts.app')
 
-@section('registro')
+@section('home')
 <div class="container">
+   
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Session de :</div>
 
                 <div class="card-body">
-                    @if (session('status'))
+                   @auth
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                            {{ 
+                                auth()->user()->nombre
+                            }}
                         </div>
-                    @endif
+                    
+                    @endauth
+                   
 
                     
                 </div>
