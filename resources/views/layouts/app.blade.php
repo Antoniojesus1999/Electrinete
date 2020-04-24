@@ -57,16 +57,13 @@
                                 </a>
                            
 
-                                <div class="" aria-labelledby="navbarDropdown"><button type="button" class="btn btn-danger">
-                                    <a class="text-light" href="{{ route('logout') }}" 
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a> </button>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+                                <div class="" aria-labelledby="navbarDropdown">
+                                  
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                            @csrf
+                                            <input type="submit" class="btn btn-danger" value="Cerrar Sesion"> </button>
+                                        </form>
+                                    
                                 </div>
                             </li>
                         @endguest
@@ -76,6 +73,7 @@
         </nav>
 
         <main class="py-4">
+            @yield('login')
             @yield('home')
 
         </main>
