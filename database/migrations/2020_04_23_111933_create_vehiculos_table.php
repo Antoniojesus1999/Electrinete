@@ -16,10 +16,23 @@ class CreateVehiculosTable extends Migration
         Schema::create('vehiculos', function (Blueprint $table) {
             $table->bigIncrements('id'); //$table->id();
             $table->string('tipo');
-            $table->string('nombre');
+            $table->string('descripcion');
             $table->string('color');
+            $table->string('img');
             $table->string('estado');
+            $table->string('alquilado');
             $table->timestamps();
+        });
+
+        Schema::create('alquileres', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('vehiculo_id');
+            $table->timestamps();
+
+           
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('vehiculo_id')->references('id')->on('vehiculos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
