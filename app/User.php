@@ -40,7 +40,11 @@ class User extends Authenticatable
 
     public function vehiculos(){
         
-            return $this->belongsToMany(vehiculo::class);
+            //return $this->belongsToMany(Vehiculo::class);
+            //return $this->belongsToMany('App\Vehiculo','id','user_id','vehiculo_id');
+            return $this->belongsToMany('App\Vehiculo','alquileres')
+                ->withPivot('user_id','vehiculo_id');
+            //return $this->belongsToMany('App\Role', 'user_roles', 'user_id', 'role_id');
         
     }
 }

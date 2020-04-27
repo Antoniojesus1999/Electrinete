@@ -5,6 +5,10 @@ section {
 .boton{
     
 }
+#tf{
+  height: 200px;
+  width: 200px;
+}
 #cards{
     display: flex;
     text-align: center;

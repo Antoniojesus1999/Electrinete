@@ -4,7 +4,7 @@
 <div class="container">
    
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Usuario conectado:</div>
 
@@ -23,10 +23,11 @@
                               <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Tipo</th>
-                                <th scope="col">Nombre</th>
                                 <th scope="col">Color</th>
                                 <th scope="col">Estado</th>
-                                <th scope="col">IMG</th>
+                                <th scope="col">Descripcion</th>
+                                <th scope="col">Usuario</th>
+                                
                               </tr>
                             </thead>
                             <tbody>
@@ -35,55 +36,55 @@
                                 <tr>
                                     <td>{{$vehiculo->id}}</td>
                                     <td>{{$vehiculo->tipo}}</td>
-                                    <td>{{$vehiculo->nombre}}</td>
                                     <td>{{$vehiculo->color}}</td>
                                     <td>{{$vehiculo->estado}}</td>
-                                    <td>{{$vehiculo->img}}</td>
+                                    <td>{{$vehiculo->nombre}}</td>
+                                    
                                   </tr>
                                 @endforeach
                               
                               
                             </tbody>
-                          </table>
+                        
+                        </table>
+                    </div>
+                        <div class="card-header text-center bg-dark text-white">Vehiculos para alquilar</div>
                           <div class="box">
+                            
                             <div class="container">
-
+                               
+                                <div class="row">
+                                    
                                 @foreach ($no_Alquilados as $item)
                                     
-                                @endforeach
-                                 <div class="row">
-                                     
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                        
                                             <div class="box-part text-center">
                                                 
-                                                <img src="" alt="">
+                                                
                                                 
                                                 <div class="title">
                                                 <h4>{{$item->tipo}}</h4>
                                                 </div>
                                                 
                                                 <div class="text">
-                                                <span>{{$item->descripcion}}</span>
+                                                    <img src="img/fotos_vehiculos/{{$item->img}}" alt="foto-vehiculo" id="tf">
+                                               
                                                 </div>
                                                 
                                                 <a href="#">¿Desea alquilar?</a>
                                                 
-                                                
                                              </div>
                                         </div>	 
                                         
-                                         
+                                        @endforeach
                                 
                                 </div>		
                             </div>
                         </div>
-                    </div>
+                    
 
                     @endauth
-                   
-
-                    
                 </div>
             </div>
         </div>
