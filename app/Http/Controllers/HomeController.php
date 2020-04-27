@@ -31,7 +31,7 @@ class HomeController extends Controller
 
         return view('home');
        }else{
-            //$vehiculos= App\Vehiculo::all();
+            
             /*$users = App\User::join("alquileres","users.id","=","user_id")
                 ->get();*/
 
@@ -40,21 +40,29 @@ class HomeController extends Controller
                 ->join('vehiculos', 'vehiculos.id', '=', 'alquileres.vehiculo_id')
                 //->limit(1)
                 ->get();
+
                 
-              
-            if ($datos !=null) {
+               
+                $vehiculos= App\Vehiculo::all();
+                //return $vehiculos;
+                //return $datos;
+            if ($vehiculos !=null) {
                 $no_Alquilados=[];
                 $si_Alquilados=[];
-            foreach ($datos as $key) {
+            foreach ($vehiculos as $key) {
                 if ($key->alquilado=='NO') {
-                    $no_Alquilados[]=$key;
+                    $no_Alquilados['vehiculo']=$key;
+
                 }else{
-                    $si_Alquilados[]=$key;
+                    $si_Alquilados['vehiculo']=$key;
+                   
                 }
             }
+            
+            
 
             
-          return view('usuario',compact('no_Alquilados','si_Alquilados'));
+          return view('usuario',compact('no_Alquilados','si_Alquilados','datos'));
             }else{
 
                 return 'Error no hay vehiculos en la base de datos';

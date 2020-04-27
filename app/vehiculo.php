@@ -16,7 +16,7 @@ class vehiculo extends Model
         //->withPivot('id', 'user_id','vehiculo_id', 'created_at','update_at');
 
         return $this->belongsToMany('App\Vehiculo','alquileres')
-                ->withPivot('user_id','vehiculo_id');
+                ->withPivot();
     
 }
 }

@@ -26,7 +26,7 @@
                                 <th scope="col">Color</th>
                                 <th scope="col">Estado</th>
                                 <th scope="col">Descripcion</th>
-                                <th scope="col">Usuario</th>
+                                
                                 
                               </tr>
                             </thead>
@@ -38,7 +38,8 @@
                                     <td>{{$vehiculo->tipo}}</td>
                                     <td>{{$vehiculo->color}}</td>
                                     <td>{{$vehiculo->estado}}</td>
-                                    <td>{{$vehiculo->nombre}}</td>
+                                    <td>{{$vehiculo->descripcion}}</td>
+                                    
                                     
                                   </tr>
                                 @endforeach

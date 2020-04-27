@@ -43,7 +43,7 @@ class User extends Authenticatable
             //return $this->belongsToMany(Vehiculo::class);
             //return $this->belongsToMany('App\Vehiculo','id','user_id','vehiculo_id');
             return $this->belongsToMany('App\Vehiculo','alquileres')
-                ->withPivot('user_id','vehiculo_id');
+                ->withPivot();
             //return $this->belongsToMany('App\Role', 'user_roles', 'user_id', 'role_id');
         
     }
