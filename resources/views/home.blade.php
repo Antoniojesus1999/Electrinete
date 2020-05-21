@@ -13,6 +13,7 @@
                         <div class="alert alert-success" role="alert">
                             {{auth()->user()->nombre  }}
                             {{auth()->user()->apellidos}}
+                            
                         </div>
                     
 
