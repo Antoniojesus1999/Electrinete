@@ -18,10 +18,11 @@ class Vehiculos extends Migration
                 $table->bigIncrements('id'); //$table->id();
                 $table->string('tipo');
                 $table->string('descripcion');
+                $table->integer('cantidad');	
                 $table->string('color');
                 $table->string('img');
                 $table->string('estado');
-                $table->string('alquilado');
+                
                 $table->timestamps();
             });
     

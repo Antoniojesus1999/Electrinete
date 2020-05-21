@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App; 
+use App\User;
 use DB;   
 
 
@@ -35,34 +36,43 @@ class HomeController extends Controller
             /*$users = App\User::join("alquileres","users.id","=","user_id")
                 ->get();*/
 
-                $datos= DB::table('users')
-                ->join('alquileres', 'users.id', '=', 'alquileres.id')
+            
+                /*return DB::table('alquileres')
+                ->join('users', 'users.id', '=', 'alquileres.user_id')
                 ->join('vehiculos', 'vehiculos.id', '=', 'alquileres.vehiculo_id')
-                //->limit(1)
                 ->get();
+
+                /*return User::join("alquileres","users.id","=","alquileres.user_id")
+                ->join("vehiculos","vehiculos.id","=","alquileres.vehiculo_id")
+                ->where("users.id","=","alquileres.user_id")
+                ->get();*/
 
                 
                
                 $vehiculos= App\Vehiculo::all();
-                //return $vehiculos;
-                //return $datos;
+
             if ($vehiculos !=null) {
+                // Si la consulta de la tabla vehiculo devuelve algo se crean lo array
                 $no_Alquilados=[];
                 $si_Alquilados=[];
-            foreach ($vehiculos as $key) {
-                if ($key->alquilado=='NO') {
-                    $no_Alquilados['vehiculo']=$key;
+            foreach ($vehiculos as $key) { // vamos recorriendo lo que ha devuelto la consulta
+                if ($key->cantidad > 0) { // si no esta alquilado se guarda en el array no alquilado
+                    $no_Alquilados[]=$key;
+                    
 
                 }else{
-                    $si_Alquilados['vehiculo']=$key;
-                   
+
+                       
+                    $si_Alquilados[]=$key;
+                    
+                    
                 }
             }
             
             
 
             
-          return view('usuario',compact('no_Alquilados','si_Alquilados','datos'));
+          return view('usuario',compact('no_Alquilados','si_Alquilados'));
             }else{
 
                 return 'Error no hay vehiculos en la base de datos';

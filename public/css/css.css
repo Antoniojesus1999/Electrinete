@@ -9,6 +9,9 @@ section {
   height: 200px;
   width: 200px;
 }
+#foto-agotados{
+  width: 150px;
+}
 #cards{
     display: flex;
     text-align: center;
