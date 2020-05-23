@@ -41,9 +41,6 @@
                                     <td>{{$vehiculo->cantidad}}</td>
                                     <td>{{$vehiculo->descripcion}}</td>
                                     <td><img src="img/fotos_vehiculos/{{$vehiculo->img}}" id="foto-agotados"alt=""></td>
-                                    
-                                    
-                                    
                                   </tr>
                                 @endforeach
                               

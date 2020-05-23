@@ -33,14 +33,40 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Electrinete
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+               
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Lado izquierda de la barra de loguin -->
                     <ul class="navbar-nav mr-auto">
-                           
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/index">Inicio <span class="sr-only">(current)</span></a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/precios">Precios</a>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Tipos de vehiculos
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="#">Bicicleta normal</a>
+                              <a class="dropdown-item" href="#">Bicicleta electrica</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Patinete Electrico</a>
+                            </div>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Tours
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="#">Tour privado en patinete electrico</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Tour privado en Bicicleta electrica</a>
+                              <div class="dropdown-divider"></div>
+                              
+                            </div>
+                          </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
