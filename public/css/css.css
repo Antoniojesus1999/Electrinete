@@ -11,6 +11,7 @@ section {
 }
 #foto-agotados{
   width: 150px;
+  height: 100px;
 }
 #cards{
     display: flex;

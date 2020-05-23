@@ -34,11 +34,11 @@ class HomeController extends Controller
         $alquileres= DB::select('select id,user_id,vehiculo_id  from alquileres');
         $nombres =[];
                 foreach ($alquileres as $key) {
-                    $nombres[]=DB::select('select nombre from users where id = :user_id', ['user_id' => $key->user_id]);
-                    $vehiculos[]=DB::select('select tipo from vehiculos where id= :vehiculo_id', ['vehiculo_id' => $key->vehiculo_id]);
+                    $nombres[]=DB::select('select id,nombre from users where id = :user_id', ['user_id' => $key->user_id]);
+                    $vehiculos[]=DB::select('select id,tipo,img from vehiculos where id= :vehiculo_id', ['vehiculo_id' => $key->vehiculo_id]);
                 }
                 
-
+                //return var_dump($nombres);
             return view('home',compact('nombres','vehiculos'));
        }else{
             
