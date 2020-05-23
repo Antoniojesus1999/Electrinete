@@ -31,9 +31,15 @@ class HomeController extends Controller
       
        if (auth()->user()->admin=='SI') {
 
-        $alquileres= App\Alquileres::all();
-        return  $alquileres;
-        return view('home');
+        $alquileres= DB::select('select id,user_id,vehiculo_id  from alquileres');
+        $nombres =[];
+                foreach ($alquileres as $key) {
+                    $nombres[]=DB::select('select nombre from users where id = :user_id', ['user_id' => $key->user_id]);
+                    $vehiculos[]=DB::select('select tipo from vehiculos where id= :vehiculo_id', ['vehiculo_id' => $key->vehiculo_id]);
+                }
+                
+
+            return view('home',compact('nombres','vehiculos'));
        }else{
             
            
