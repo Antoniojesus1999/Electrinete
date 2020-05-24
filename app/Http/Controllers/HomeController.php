@@ -26,6 +26,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    
     public function index()
     {
       
@@ -41,10 +42,6 @@ class HomeController extends Controller
                 //return var_dump($nombres);
             return view('home',compact('nombres','vehiculos'));
        }else{
-            
-           
-
-                
                
                 $vehiculos= App\Vehiculo::all();
 
@@ -59,10 +56,6 @@ class HomeController extends Controller
                     $si_Alquilados[]=$key;
                 }
             }
-            
-            
-
-            
           return view('usuario',compact('no_Alquilados','si_Alquilados'));
             }else{
 
@@ -71,12 +64,16 @@ class HomeController extends Controller
             
        }
 
-
-
-         
-
     }
 
-   
-   
+    public function crear(){
+        return view('layouts.crear');
+    }
+    public function crearTipo(){
+        if(request('btn')=='Crear vehiculo'){
+                return view('layouts.crearVehiculo');
+        }else{
+                return view('layouts.crearUsuario');
+        };
+    }
 }

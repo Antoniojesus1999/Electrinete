@@ -106,11 +106,13 @@
                 </div>
             </div>
         </nav>
+        
 
         <main class="py-4">
             @yield('login')
             @yield('home')
             @yield('usuario')
+            @yield('crear')
 
         </main>
 
@@ -120,7 +122,7 @@
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Pagina</h5>
 					<ul class="list-unstyled quick-links">
-               <!--<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>-->
+               
             <li><a href="/index"><i class="fa fa-angle-double-right"></i>Inicio</a></li>
 						<li><a href=""><i class="fa fa-angle-double-right"></i>Tipos de vehiculos</a></li>
 						<li><a href=""><i class="fa fa-angle-double-right"></i>FAQ</a></li>

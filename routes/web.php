@@ -21,6 +21,22 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'Controller@inicio')->name('inicio');
 //Route::get('/', 'Controller@precios')->name('precios');
 Route::post('/register','Auth\RegisterController@register')->name('register');
+Route::get('/crear','HomeController@crear')->name('crear');
+Route::get('/crearTipo','HomeController@crearTipo')->name('crearTipo');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -32,7 +48,5 @@ Route::get('/', function () {
 });
 //Route::get('/register','Auth/RegisterController@showRegistrationForm')->name('register');
 
-*/ 
-/*
 
 */

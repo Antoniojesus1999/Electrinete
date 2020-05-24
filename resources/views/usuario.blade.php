@@ -18,6 +18,7 @@
                         </div>
                     <div class="card-header text-center bg-dark text-white">Vehiculos que estan agotados</div>
                     <div class="card-body">
+                       
                         <table class="table table-striped">
                             <thead>
                               <tr>
