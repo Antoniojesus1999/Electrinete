@@ -23,6 +23,7 @@ Route::get('/', 'Controller@inicio')->name('inicio');
 Route::post('/register','Auth\RegisterController@register')->name('register');
 Route::get('/crear','HomeController@crear')->name('crear');
 Route::get('/crearTipo','HomeController@crearTipo')->name('crearTipo');
+Route::post('/crearVehiculo','HomeController@crearvehiculo')->name('crearVehiculo');
 
 
 

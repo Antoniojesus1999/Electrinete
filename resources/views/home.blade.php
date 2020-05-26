@@ -15,6 +15,7 @@
                             {{auth()->user()->apellidos}}
                             
                         </div>
+                       
                         <div class="alert text-left">
                             Alquileres: 
                          </div>

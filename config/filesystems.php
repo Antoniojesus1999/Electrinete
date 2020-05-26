@@ -64,6 +64,11 @@ return [
             'endpoint' => env('AWS_URL'),
         ],
 
+        'discoMIO' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/img/vehiculos',
+        ],
+
     ],
 
     /*

@@ -2,6 +2,7 @@
 @extends('principal')
 
 @section('registro')
+<link rel="stylesheet" href="{{ asset('css/css.css') }}">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

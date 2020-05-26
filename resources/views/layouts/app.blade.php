@@ -112,6 +112,7 @@
             @yield('login')
             @yield('home')
             @yield('usuario')
+            @yield('vehiculo')
             @yield('crear')
 
         </main>

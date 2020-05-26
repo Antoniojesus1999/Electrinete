@@ -36,12 +36,13 @@
 
                                 @foreach ($si_Alquilados as $vehiculo)
                                 <tr>
+                                    
                                     <td>{{$vehiculo->id}}</td>
                                     <td>{{$vehiculo->tipo}}</td>
                                     <td>{{$vehiculo->color}}</td>
                                     <td>{{$vehiculo->cantidad}}</td>
                                     <td>{{$vehiculo->descripcion}}</td>
-                                    <td><img src="img/fotos_vehiculos/{{$vehiculo->img}}" id="foto-agotados" alt=""></td>
+                                    <td><img src="img/vehiculos/{{$vehiculo->img}}" id="foto-agotados" alt=""></td>
                                   </tr>
                                 @endforeach
                               
@@ -71,7 +72,7 @@
                                                 </div>
                                                 
                                                 <div class="text mt-3">
-                                                    <img src="img/fotos_vehiculos/{{$item->img}}" alt="foto-vehiculo" id="tf">
+                                                    <img src="img/vehiculos/{{$item->img}}" alt="foto-vehiculo" id="tf">
                                                
                                                 </div>
                                                 <div class="text mt-3">

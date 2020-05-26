@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App; 
 use App\User;
 use App\Alquileres;
+use App\Vehiculo;
 use DB;   
 
 
@@ -44,6 +45,7 @@ class HomeController extends Controller
        }else{
                
                 $vehiculos= App\Vehiculo::all();
+                
 
             if ($vehiculos !=null) {
                 // Si la consulta de la tabla vehiculo devuelve algo se crean el array
@@ -56,6 +58,7 @@ class HomeController extends Controller
                     $si_Alquilados[]=$key;
                 }
             }
+           
           return view('usuario',compact('no_Alquilados','si_Alquilados'));
             }else{
 
@@ -73,7 +76,34 @@ class HomeController extends Controller
         if(request('btn')=='Crear vehiculo'){
                 return view('layouts.crearVehiculo');
         }else{
-                return view('layouts.crearUsuario');
+                return view('auth.register');
         };
     }
+    public function crearVehiculo(Request $request){
+       
+        $fecha = Carbon::now();
+        $fecha = $fecha->toDateTimeString(); 
+        $file = request()->file('img');
+        $file->store('', ['disk' => 'discoMIO']);
+
+
+        //$request->file('img')->store('../public/img/vehiculos');
+        $nuevoVehiculo = new App\Vehiculo;
+        $nuevoVehiculo->id = null;
+        $nuevoVehiculo->tipo = $request->tipo;
+        $nuevoVehiculo->descripcion = $request->descripcion;
+        $nuevoVehiculo->cantidad = $request->cantidad;
+        $nuevoVehiculo->color = $request->color;
+        $nuevoVehiculo->img = substr($request->file('img')->store('vehiculos/'),11);
+        $nuevoVehiculo->estado = $request->estado;
+        $nuevoVehiculo->created_at = $fecha;
+        $nuevoVehiculo->updated_at = $fecha;
+        $nuevoVehiculo->save();
+
+        return back()->with('mensaje2','Vehiculo creado correctamente');
+        
+    }
+
+         
+
 }
