@@ -22,6 +22,11 @@
                                 <input id="nombre" name="tipo" type="text" placeholder="Nombre" class="form-control">
                             </div>
                         </div>
+                        @error('tipo')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i>Descripcion</i></span>
                             <div class="col-md-8">

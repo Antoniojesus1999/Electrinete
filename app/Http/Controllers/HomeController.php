@@ -81,13 +81,19 @@ class HomeController extends Controller
     }
     public function crearVehiculo(Request $request){
        
+        $request->validate([
+            'tipo' => 'required',
+            'descripcion' => 'required',
+            'cantidad' => 'required',
+            'color' => 'required',
+            'img' => 'required|image',
+            'estado' => 'required'
+        ]);
         $fecha = Carbon::now();
         $fecha = $fecha->toDateTimeString(); 
         $file = request()->file('img');
         $file->store('', ['disk' => 'discoMIO']);
 
-
-        //$request->file('img')->store('../public/img/vehiculos');
         $nuevoVehiculo = new App\Vehiculo;
         $nuevoVehiculo->id = null;
         $nuevoVehiculo->tipo = $request->tipo;
