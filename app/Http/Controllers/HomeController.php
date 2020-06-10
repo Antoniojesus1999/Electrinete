@@ -72,6 +72,9 @@ class HomeController extends Controller
     public function crear(){
         return view('layouts.crear');
     }
+
+    
+
     public function crearTipo(){
         if(request('btn')=='Crear vehiculo'){
                 return view('layouts.crearVehiculo');
@@ -79,15 +82,17 @@ class HomeController extends Controller
                 return view('auth.register');
         };
     }
+
+
     public function crearVehiculo(Request $request){
        
-        $request->validate([
+       $request->validate([
             'tipo' => 'required',
             'descripcion' => 'required',
             'cantidad' => 'required',
             'color' => 'required',
             'img' => 'required|image',
-            'estado' => 'required'
+            'estado' => 'required',
         ]);
         $fecha = Carbon::now();
         $fecha = $fecha->toDateTimeString(); 
@@ -110,6 +115,51 @@ class HomeController extends Controller
         
     }
 
+    public function actualizar(){
+
+        $vehiculos= App\Vehiculo::all();
+        
+        return view('layouts.actualizar',compact('vehiculos'));
+    }
+
+    public function actualizarbd($id){
+        $vehiculo =DB::select('select * from vehiculos where id= :id', ['id' => $id]);
+      return view('layouts.actualizarbd',compact('vehiculo'));
+      
+    }
+    public function update(Request $request){
+        $request->validate([
+            'tipo' => 'required',
+            'descripcion' => 'required',
+            //'img'  => 'image|required',
+            'cantidad' => 'required',
+            'color' => 'required',
+            'estado' => 'required',
+        ]);
+        
+        $vehiculo = Vehiculo::findOrFail(request('id'));
+        $vehiculo->tipo = $request->tipo;
+        $vehiculo->descripcion = $request->descripcion;
+        $vehiculo->cantidad = $request->cantidad;
+        $vehiculo->color = $request->color;
+        $vehiculo->estado = $request->estado;  
+        
+        if($request->img =! 'null'){
+               $file = request()->file('img');
+        $file->store('', ['disk' => 'discoMIO']);
+        $vehiculo->img =substr($request->file('img')->store('vehiculos/'),11);
+        }
+        $vehiculo->save();
+
+        $vehiculos= App\Vehiculo::all();
+        
+        session(['exito' => 'Actualizado correctamente']);
+        return view('layouts.actualizar',compact('vehiculos'));
+    }
+
+    public function borrar(){
+        return view('layouts.borrar');
+    }
          
 
 }

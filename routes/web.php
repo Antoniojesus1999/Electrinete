@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+Auth::routes();
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'Controller@inicio')->name('inicio');
@@ -24,6 +24,12 @@ Route::post('/register','Auth\RegisterController@register')->name('register');
 Route::get('/crear','HomeController@crear')->name('crear');
 Route::get('/crearTipo','HomeController@crearTipo')->name('crearTipo');
 Route::post('/crearVehiculo','HomeController@crearvehiculo')->name('crearVehiculo');
+Route::get('/actualizar','HomeController@actualizar')->name('actualizar');
+Route::get('/actualizarbd/{id}','HomeController@actualizarbd')->name('actualizarbd');
+Route::post('/update','HomeController@update')->name('update');
+Route::get('/borrar','HomeController@borrar')->name('borrar');
+
+
 
 
 

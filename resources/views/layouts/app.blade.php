@@ -114,6 +114,10 @@
             @yield('usuario')
             @yield('vehiculo')
             @yield('crear')
+            @yield('actualizar')
+            @yield('actualizarbd')
+            @yield('borrar')
+            @yield('borrarUsuario')
 
         </main>
 

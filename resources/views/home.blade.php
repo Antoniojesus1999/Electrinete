@@ -43,7 +43,7 @@
                                         <td>{{$nombres[$i][0]->nombre}}</td>
                                         <td>{{$vehiculos[$i][0]->id}}</td>
                                         <td>{{$vehiculos[$i][0]->tipo}}</td>
-                                        <td><img src="img/fotos_vehiculos/{{$vehiculos[$i][0]->img}}" id="foto-agotados" alt=""></td>
+                                        <td><img src="img/vehiculos/{{$vehiculos[$i][0]->img}}" id="foto-agotados" alt=""></td>
                                         
                                       </tr>
                                     @endfor
@@ -70,8 +70,8 @@
                                       
                                       <div class="card-body">
                                         <h5 class="card-title">Actualizar</h5>
-                                        <p class="card-text">Este boton te ayudara a actualizar los datos de un usuario</p>
-                                        <button type="button" class="btn btn-primary" onclick="location.href='/crear'"><img class="card-img-top" id="iconos"src="img/iconos/cruz-entrecruzada.png" alt="boton actualizar">Actualizar</button>
+                                        <p class="card-text">Este boton te ayudara a actualizar los datos de un vehiculo</p>
+                                        <button type="button" class="btn btn-primary" onclick="location.href='/actualizar'"><img class="card-img-top" id="iconos"src="img/iconos/icons8-actualizar-100.png" alt="boton actualizar">Actualizar</button>
                                       </div>
                                     </div>
                                   
@@ -82,7 +82,7 @@
                                   <div class="card-body">
                                     <h5 class="card-title">Borrar</h5>
                                     <p class="card-text">Con este boton podras eliminar un usuario</p>
-                                    <button type="button" class="btn btn-danger" onclick="location.href='/crear'"> <img class="card-img-top" id="iconos" src="img/iconos/icons8-actualizar-100.png" alt="boton borrar">Borrar</button>
+                                    <button type="button" class="btn btn-danger" onclick="location.href='/borrar'"> <img class="card-img-top" id="iconos" src="img/iconos/cruz-entrecruzada.png" alt="boton borrar">Borrar</button>
                                   </div>
                                 </div>
 
