@@ -81,7 +81,7 @@
                                   
                                   <div class="card-body">
                                     <h5 class="card-title">Borrar</h5>
-                                    <p class="card-text">Con este boton podras eliminar un usuario</p>
+                                    <p class="card-text">Con este boton podras eliminar un usuario o un vehiculo</p>
                                     <button type="button" class="btn btn-danger" onclick="location.href='/borrar'"> <img class="card-img-top" id="iconos" src="img/iconos/cruz-entrecruzada.png" alt="boton borrar">Borrar</button>
                                   </div>
                                 </div>

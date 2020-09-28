@@ -28,6 +28,10 @@ Route::get('/actualizar','HomeController@actualizar')->name('actualizar');
 Route::get('/actualizarbd/{id}','HomeController@actualizarbd')->name('actualizarbd');
 Route::post('/update','HomeController@update')->name('update');
 Route::get('/borrar','HomeController@borrar')->name('borrar');
+Route::get('/borrarbd','HomeController@borrarbd')->name('borrarbd');
+Route::get('/borrarusuario/{id}','HomeController@borrarusuario')->name('borrarusuario');
+
+
 
 
 

@@ -118,6 +118,7 @@
             @yield('actualizarbd')
             @yield('borrar')
             @yield('borrarUsuario')
+            @yield('borrarVehiculo')
 
         </main>
 

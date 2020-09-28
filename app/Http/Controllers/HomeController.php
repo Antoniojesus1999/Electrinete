@@ -144,10 +144,10 @@ class HomeController extends Controller
         $vehiculo->color = $request->color;
         $vehiculo->estado = $request->estado;  
         
-        if($request->img =! 'null'){
-               $file = request()->file('img');
-        $file->store('', ['disk' => 'discoMIO']);
-        $vehiculo->img =substr($request->file('img')->store('vehiculos/'),11);
+        if(@getimagesize($request->img)){
+            $file = request()->file('img');
+            $file->store('', ['disk' => 'discoMIO']);
+            $vehiculo->img =substr($request->file('img')->store('vehiculos/'),11);
         }
         $vehiculo->save();
 
@@ -157,9 +157,29 @@ class HomeController extends Controller
         return view('layouts.actualizar',compact('vehiculos'));
     }
 
-    public function borrar(){
+    public function borrar(Request $request){
+        
+        
         return view('layouts.borrar');
     }
-         
+
+    public function borrarbd(Request $request){
+        
+       
+        if($request->btn == 'Borrar usuario'){
+          
+            $nombres =DB::select('select * from users where admin= :admin', ['admin' => 'NO']); 
+            return view('layouts.borrarUsuario',compact('nombres'));
+        }else{
+            $vehiculos= App\Vehiculo::all();    
+            return view('layouts.borrarVehiculo',compact('vehiculos'));
+        }
+        
+    }
+    public function borrarusuario($id){
+        return $id;
+    }
+
+    
 
 }

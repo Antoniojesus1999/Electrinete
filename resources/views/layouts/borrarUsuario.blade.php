@@ -6,20 +6,27 @@
       <thead>
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">TIPO</th>
-          <th scope="col">DESCRIPCION</th>
-          <th scope="col">IMAGEN</th>
+          <th scope="col">NOMBRE</th>
+          <th scope="col">APELLIDO</th>
+          <th scope="col">ADMIN</th>
+          <th scope="col">LOCALIDAD</th>
+          <th scope="col">METDO</th>
         </tr>
       </thead>
       <tbody>
-    @foreach ($vehiculos as $item)
+    @foreach ($nombres as $item)
     
         <tr>
         <th scope="row">{{$item->id}}</th>
-          <td>{{$item->tipo}}</td>
-          <td>{{$item->descripcion}}</td>
-          <td><img src="img/vehiculos/{{$item->img}}" id="foto-agotados"></td>
-        <td><button type="button" class="btn btn-success" onclick="location.href='/actualizarbd/{{$item->id}}'">Actualizar</button></td>
+          <td>{{$item->nombre}}</td>
+          <td>{{$item->apellidos}}</td>
+          <td>{{$item->admin}}</td>
+          <td>{{$item->localidad}}</td>
+          <td>{{$item->metodo}}</td>
+          
+        <td><button type="button" class="btn btn-danger" onclick="location.href='/borrarusuario/{{$item->id}}'" onclick="return confirm('Seguro que desea eliminar este usuario')">Borrar</button>
+        <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"> </span>
+        </td>
         </tr>
         
       

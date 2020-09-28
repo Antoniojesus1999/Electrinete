@@ -7,7 +7,7 @@
     <div class="alert alert-dark" role="alert">
         Si deseas borrar un usuario pulsa borrar usuario si lo que quieres es borrar un vehiculo pulsa borrar vehiculo
     </div>
-<form method="GET" action="{{route('borrar')}}">
+<form method="GET" action="{{route('borrarbd')}}">
     @csrf
         <div class="row justify-content-center">
           <div class="col-lg-6 col-md-5 col-sm-4 col-xs-12 ">

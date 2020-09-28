@@ -1,14 +1,7 @@
 @extends('layouts.app') 
 
-@section('actualizar')
+@section('borrarVehiculo')
 <div class="container">
-    
-  @if(session('exito'))
-        <div class="alert alert-success">
-        {{session('exito')}}
-        {{Session::forget('exito')}}
-        </div>
-    @endif
     <table class="table">
       <thead>
         <tr>
@@ -16,6 +9,7 @@
           <th scope="col">TIPO</th>
           <th scope="col">DESCRIPCION</th>
           <th scope="col">IMAGEN</th>
+          <th scope="col">¿Borrar?</th>
         </tr>
       </thead>
       <tbody>
@@ -25,8 +19,9 @@
         <th scope="row">{{$item->id}}</th>
           <td>{{$item->tipo}}</td>
           <td>{{$item->descripcion}}</td>
-          <td><img src="img/vehiculos/{{$item->img}}" id="foto-agotados"></td>
-        <td><button type="button" class="btn btn-success" onclick="location.href='/actualizarbd/{{$item->id}}'">Actualizar</button></td>
+          <td><img src="img/vehiculos/{{$item->img}}" width="15%"></td>
+          
+        <td><button type="button" class="btn btn-danger" onclick="location.href='/actualizarbd/{{$item->id}}'">Borrar</button></td>
         </tr>
         
       
@@ -34,7 +29,7 @@
   </tbody>
     </table>
    
-    <button type="button" onclick="location.href='/home'" class="btn btn-success">Success</button>
+
     
 </div>
 @endsection
