@@ -86,8 +86,13 @@
                                 <button type="submit" class="btn btn-success btn-lg">Submit</button>
                             </div>
                         </div>
+                        
                     </fieldset>
                 </form>
+                <div class="col-md-12 ">
+                                <a href="{{route('home')}}" class="btn btn-danger btn-lg">Volver</a>
+                </div>
+                
             </div>
         </div>
     </div>

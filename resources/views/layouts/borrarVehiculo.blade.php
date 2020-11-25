@@ -2,6 +2,12 @@
 
 @section('borrarVehiculo')
 <div class="container">
+   @if(session('exitoborrar'))
+        <div class="alert alert-success">
+        {{session('exitoborrar')}}
+        {{Session::forget('exitoborrar')}}
+        </div>
+    @endif
     <table class="table">
       <thead>
         <tr>
@@ -21,7 +27,7 @@
           <td>{{$item->descripcion}}</td>
           <td><img src="img/vehiculos/{{$item->img}}" width="15%"></td>
           
-        <td><button type="button" class="btn btn-danger" onclick="location.href='/actualizarbd/{{$item->id}}'">Borrar</button></td>
+        <td><button type="button" class="btn btn-danger" onclick="location.href='/confirmarvehiculo/{{$item->id}}'" >Borrarr</button></td>
         </tr>
         
       
@@ -29,6 +35,7 @@
   </tbody>
     </table>
    
+    <button type="button" class="btn btn-success" onclick="location.href='/home'">Volver</button>
 
     
 </div>

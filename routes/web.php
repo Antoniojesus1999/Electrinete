@@ -30,6 +30,15 @@ Route::post('/update','HomeController@update')->name('update');
 Route::get('/borrar','HomeController@borrar')->name('borrar');
 Route::get('/borrarbd','HomeController@borrarbd')->name('borrarbd');
 Route::get('/borrarusuario/{id}','HomeController@borrarusuario')->name('borrarusuario');
+Route::get('/borrarvehiculo/{id}','HomeController@borrarvehiculo')->name('borrarvehiculo');
+Route::get('/alquilar/{id}','HomeController@alquilar')->name('alquilar');
+Route::get('/confirmarvehiculo/{id}','HomeController@confirmarvehiculo')->name('confirmarvehiculo');
+Route::get('/alquilado/{id}','HomeController@alquilado')->name('alquilado');
+Route::get('/devolver/{id}','HomeController@devolver')->name('devolver');
+
+
+
+
 
 
 

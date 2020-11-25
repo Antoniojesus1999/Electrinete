@@ -19,39 +19,43 @@
                         <div class="alert text-left">
                             Alquileres: 
                          </div>
-                        
+                        @if (isset($vehiculos) || isset($nombre))
                         <div class="card-body">
-                            <table class="table table-striped">
-                                <thead>
+                          <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Id Usuario</th>
+                                  <th scope="col">Nombre</th>
+                                  <th scope="col">Id Vehiculo</th>
+                                  <th scope="col">Tipo</th>
+                                  <th scope="col">IMAGEN</th>
+                                  
+                                  
+                                </tr>
+                              </thead>
+                              <tbody>
+  
+                                  @for ($i = 0; $i < sizeof($nombres); $i++)
+                                      
+                                  
                                   <tr>
-                                    <th scope="col">Id Usuario</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Id Vehiculo</th>
-                                    <th scope="col">Tipo</th>
-                                    <th scope="col">IMAGEN</th>
-                                    
-                                    
-                                  </tr>
-                                </thead>
-                                <tbody>
-    
-                                    @for ($i = 0; $i < sizeof($nombres); $i++)
-                                        
-                                    
-                                    <tr>
-                                        <td>{{$nombres[$i][0]->id}}</td>
-                                        <td>{{$nombres[$i][0]->nombre}}</td>
-                                        <td>{{$vehiculos[$i][0]->id}}</td>
-                                        <td>{{$vehiculos[$i][0]->tipo}}</td>
-                                        <td><img src="img/vehiculos/{{$vehiculos[$i][0]->img}}" id="foto-agotados" alt=""></td>
-                                        
-                                      </tr>
-                                    @endfor
-                                  
-                                  
-                                </tbody>
-                            
-                            </table>
+                                      <td>{{$nombres[$i][0]->id}}</td>
+                                      <td>{{$nombres[$i][0]->nombre}}</td>
+                                      <td>{{$vehiculos[$i][0]->id}}</td>
+                                      <td>{{$vehiculos[$i][0]->tipo}}</td>
+                                      <td><img src="/img/vehiculos/{{$vehiculos[$i][0]->img}}" id="foto-agotados" alt=""></td>
+                                      
+                                    </tr>
+                                  @endfor
+                                
+                                
+                              </tbody>
+                          
+                          </table>
+
+                          @else El numero de alquileres es 0
+                        @endif
+                        
 
                             <div class="row justify-content-around">
                               <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"> 

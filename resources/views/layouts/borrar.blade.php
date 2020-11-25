@@ -3,6 +3,7 @@
 @section('borrar')
 
 <div class="container card-body text-center ">
+  
     @auth
     <div class="alert alert-dark" role="alert">
         Si deseas borrar un usuario pulsa borrar usuario si lo que quieres es borrar un vehiculo pulsa borrar vehiculo

@@ -2,6 +2,12 @@
 
 @section('borrarUsuario')
 <div class="container">
+  @if(session('exitoborrar'))
+        <div class="alert alert-success">
+        {{session('exitoborrar')}}
+        {{Session::forget('exitoborrar')}}
+        </div>
+    @endif
     <table class="table">
       <thead>
         <tr>
@@ -24,7 +30,7 @@
           <td>{{$item->localidad}}</td>
           <td>{{$item->metodo}}</td>
           
-        <td><button type="button" class="btn btn-danger" onclick="location.href='/borrarusuario/{{$item->id}}'" onclick="return confirm('Seguro que desea eliminar este usuario')">Borrar</button>
+        <td><button type="button" class="btn btn-danger" onclick="location.href='/confirmarusuario/{{$item->id}}'" >Borrar</button>
         <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"> </span>
         </td>
         </tr>
@@ -34,7 +40,7 @@
   </tbody>
     </table>
    
-
+    <button type="button" class="btn btn-success" onclick="location.href='/home'" onclick="return confirm('Seguro que desea eliminar este usuario')">Volver</button>
     
 </div>
 @endsection

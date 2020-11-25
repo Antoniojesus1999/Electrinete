@@ -109,6 +109,8 @@
         
 
         <main class="py-4">
+            @yield('confirmarUsuario')
+            @yield('confirmarVehiculo')
             @yield('login')
             @yield('home')
             @yield('usuario')
@@ -119,6 +121,10 @@
             @yield('borrar')
             @yield('borrarUsuario')
             @yield('borrarVehiculo')
+            @yield('alquilar')
+            @yield('alquilado')
+            @yield('devolver')
+
 
         </main>
 

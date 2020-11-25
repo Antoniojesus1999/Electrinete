@@ -6,6 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+       
+        Schema::dropIfExists('users');
+    
+        
+        
+       
+
+    }
     /**
      * Run the migrations.
      *
@@ -14,7 +30,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         
-        Schema::create('users', function (Blueprint $table) {
+       Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');//$table->id();
             $table->string('nombre');
             $table->string('apellidos');
@@ -30,13 +46,5 @@ class CreateUsersTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('users');
-    }
+    
 }
