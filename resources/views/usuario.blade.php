@@ -91,7 +91,7 @@
                                 <td>{{$vehiculo->color}}</td>
                                 <td>{{$vehiculo->descripcion}}</td>
                                 <td><img src="img/vehiculos/{{$vehiculo->img}}" id="foto-agotados" alt=""></td>
-                                <td><a href="{{ route('devolver',$vehiculo)}}" class="btn btn-danger">Devolver</a></td>
+                                <td><a href="{{ route('devolver',$vehiculo->id)}}" class="btn btn-danger">Devolver</a></td>
                             </tr>
                             @endforeach
                           

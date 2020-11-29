@@ -12,12 +12,10 @@
       <p class="card-text">{{$vehiculo->descripcion}}</p>
       <figure><img src="/img/vehiculos/{{$vehiculo->img}}" width="40%" alt="foto-vehiculo" id="tf"></figure>
       <div style="text-align:center;padding:1em 0;">  <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=medium&timezone=Europe%2FMadrid" width="100%" height="115" frameborder="0" seamless></iframe> </div>
-        @isset($alquila)
+       
           <a onclick="location.href='/alquilado/{{$vehiculo->id}}'"  class="btn btn-success">Alquilar en este instante</a>
-        @endisset
-        @isset($paga)
-          <a onclick="location.href='/devolver/{{$vehiculo->id}}'"  class="btn btn-danger">Finalizar Alquiler</a>
-        @endisset
+       
+        
     
     </div>
     <div class="card-footer text-muted">

@@ -226,57 +226,56 @@ class HomeController extends Controller
        
         $vehiculo= App\Vehiculo::find($id);
         $usuario = App\User::find(auth()->user()->id);
-        if (strlen($usuario->hora_alquiler) < 2) {
-            return view('layouts.alquilar',compact('vehiculo'))->with('alquila','alquila');
-        }else{
-            return view('layouts.alquilar',compact('vehiculo'))->with('paga','paga');
-        }
+        
+            return view('layouts.alquilar',compact('vehiculo'));
+        
         
     }
     public function alquilado($id){
         $usuario = App\User::find(auth()->user()->id);
         $vehiculo = App\Vehiculo::find($id);
-        if ($vehiculo->cantidad>0) {
+        
             $date= Carbon::now()->toDateTimeString();
            
             DB::insert('insert into alquileres (id, user_id,vehiculo_id,fecha,created_at,updated_at) values (?,?,?,?,?,?)', [NULL, auth()->user()->id, $vehiculo->id,$date,$date,$date ]);
             $vehiculo->update([
                 'cantidad' => $vehiculo->cantidad-1,
             ]);
+
             return view('layouts.alquilado',compact('vehiculo','date'));
-        }else{
-            return "error el numero de alquileres es 0 ";
-        }
         
-       
+
     }
 
-    public function devolver(Vehiculo $vehiculo){
+    public function devolver($id){
 
-        //mirar como se pasa un objeto por url
         
-        return $vehiculo->id;
         $vehiculo = App\Vehiculo::find($id);
-         
         $usuario = App\User::find(auth()->user()->id);
-        $usuario->update(['n_alquileres'=> $usuario->n_alquileres+1]);
-       
-        DB::table('alquileres')->where('user_id', '=', auth()->user()->id)->where('vehiculo_id','=',$id)->delete();
+
+        //$usuario->update(['n_alquileres'=> $usuario->n_alquileres+1]);
+        $alquiler = DB::select('select * from Alquileres where user_id = ? and vehiculo_id= ?', [auth()->user()->id,$id]);
+     
         
-        $hora_bd=Carbon::parse($usuario->hora_alquiler);
+        $hora_bd=Carbon::parse($alquiler[0]->fecha);;
         $now = Carbon::now();
         $diferencia= $now->diffAsCarbonInterval($hora_bd);
+        
         $d_minutos=$now->diffInMinutes($hora_bd);
+        
         $vehiculo->update([
             'cantidad' => $vehiculo->cantidad+1,
+        ]);
+        $usuario->update([
+            'n_alquileres' => $usuario->n_alquileres+1,
         ]);
         
         $precio = $d_minutos*0.16;
         if($d_minutos == 0){
             $precio = 0.16;
         }
-        
-        return view('layouts.devolver',compact('vehiculo'));
+       $alquiler[0]->Delete();
+        return view('layouts.devolver',compact('vehiculo','precio'));
            
     }
     
