@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Alquileres extends Migration
+class CreateAlquileresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -21,6 +21,7 @@ class Alquileres extends Migration
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('vehiculo_id')->references('id')->on('vehiculos')->onDelete('cascade')->onUpdate('cascade');
+        
         });
 
     }
@@ -32,6 +33,6 @@ class Alquileres extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('alquileres');
     }
 }

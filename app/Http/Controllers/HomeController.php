@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App; 
 use App\User;
 use App\Alquileres;
 use App\Vehiculo;
-use DB;   
+use DB;
+use App\Mail\Enviar;
 
 
 class HomeController extends Controller
@@ -248,14 +250,18 @@ class HomeController extends Controller
     }
 
     public function devolver($id){
-
+        
         
         $vehiculo = App\Vehiculo::find($id);
         $usuario = App\User::find(auth()->user()->id);
-
-        //$usuario->update(['n_alquileres'=> $usuario->n_alquileres+1]);
-        $alquiler = DB::select('select * from Alquileres where user_id = ? and vehiculo_id= ?', [auth()->user()->id,$id]);
-     
+        Mail::to('antoniojesuspv99@gmail.com')->send(new Enviar());
+                return 'ok';
+        //$alquiler = DB::select('select * from Alquileres where user_id = ? and vehiculo_id= ?', [auth()->user()->id,$id]);
+        $alquiler = Alquileres::where([
+            'user_id' => auth()->user()->id,
+            'vehiculo_id' => $id
+        ])->get();
+        
         
         $hora_bd=Carbon::parse($alquiler[0]->fecha);;
         $now = Carbon::now();
@@ -274,7 +280,8 @@ class HomeController extends Controller
         if($d_minutos == 0){
             $precio = 0.16;
         }
-       $alquiler[0]->Delete();
+            
+    $alquiler[0]->delete();
         return view('layouts.devolver',compact('vehiculo','precio'));
            
     }
