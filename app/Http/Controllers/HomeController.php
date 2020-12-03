@@ -9,7 +9,7 @@ use App\User;
 use App\Alquileres;
 use App\Vehiculo;
 use DB;
-use App\Mail\Enviar;
+use App\Mail\ElectrineteFactura;
 
 
 class HomeController extends Controller
@@ -254,7 +254,7 @@ class HomeController extends Controller
         
         $vehiculo = App\Vehiculo::find($id);
         $usuario = App\User::find(auth()->user()->id);
-        Mail::to('antoniojesuspv99@gmail.com')->send(new Enviar());
+        Mail::to('antoniojesuspv99@gmail.com')->send(new ElectrineteFactura($vehiculo,$usuario));
                 return 'ok';
         //$alquiler = DB::select('select * from Alquileres where user_id = ? and vehiculo_id= ?', [auth()->user()->id,$id]);
         $alquiler = Alquileres::where([
