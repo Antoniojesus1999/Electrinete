@@ -14,6 +14,7 @@
           <th scope="col">ID</th>
           <th scope="col">NOMBRE</th>
           <th scope="col">APELLIDO</th>
+          <th scope="col">EMAIL</th>
           <th scope="col">ADMIN</th>
           <th scope="col">LOCALIDAD</th>
           <th scope="col">METDO</th>
@@ -26,6 +27,7 @@
         <th scope="row">{{$item->id}}</th>
           <td>{{$item->nombre}}</td>
           <td>{{$item->apellidos}}</td>
+          <td>{{$item->email}}</td>
           <td>{{$item->admin}}</td>
           <td>{{$item->localidad}}</td>
           <td>{{$item->metodo}}</td>
