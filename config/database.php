@@ -46,14 +46,14 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
+            'host' => env('DB_HOST', '127.0.0.1'),// lo he cambiado
+            'port' => env('DB_PORT', '3306'),// lo he cambiado
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
+            'collation' => 'utf8mb4_unicode_ci', // lo he cambiado
             'prefix' => '',
             'prefix_indexes' => true,
             'strict' => true, // lo he cambiado
