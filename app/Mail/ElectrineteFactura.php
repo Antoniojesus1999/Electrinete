@@ -14,17 +14,24 @@ class ElectrineteFactura extends Mailable
     public $subjet= 'Pago por el servicio de Electrinete';
     public $vehiculo;
     public $usuario;
+    public $alquiler;
+    public $precio;
+    public $now;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($vehiculo,$usuario)
+    public function __construct($vehiculo,$usuario,$alquiler,$precio,$now)
     {
       
         $this->vehiculo=$vehiculo;
         $this->usuario=$usuario;
+        $this->alquiler=$alquiler;
+        $this->precio=$precio;
+        $this->now=$now;
+
     }
 
     /**

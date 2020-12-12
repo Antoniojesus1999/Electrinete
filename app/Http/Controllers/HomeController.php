@@ -185,13 +185,15 @@ class HomeController extends Controller
 
     public function borrarbd(Request $request){
         
-       
+        
+        
         if($request->btn == 'Borrar usuario'){
           
             $nombres =DB::select('select * from users where admin= :admin', ['admin' => 'NO']); 
             return view('layouts.borrarUsuario',compact('nombres'));
         }else{
-            $vehiculos= App\Vehiculo::all();    
+            
+            $vehiculos= App\Vehiculo::all(); 
             return view('layouts.borrarVehiculo',compact('vehiculos'));
         }
         
@@ -248,14 +250,51 @@ class HomeController extends Controller
         
 
     }
+    public function crearAdmin(){
+        $usuariosNO= User::where([
+            'admin' => 'NO'
+        ])->get();
+        $usuariosSI= User::where([
+            'admin' => 'SI'
+        ])->get();
+        return view('layouts.crearAdmin',compact('usuariosNO','usuariosSI'));
+    }
+    public function nuevoAdmin($id){
+        $usuario = App\User::find($id);
+        $usuario->update([
+            'admin' => 'SI'
+        ]);
+       
+        return back()->with('EXIT','El usuario se ha pasado al rol de Administrador con exito');
+    }
+    public function quitarAdmin($id){
+        
+        $usuarios = User::where([
+            'admin'=> 'SI'
+        ])->get();
+        $usuario = App\User::find($id);
+        
+        if(sizeof($usuarios)>1){
+            $usuario->update([
+            'admin' => 'NO'
+        ]);
+        return back()->with('borrradoAdmin','Al administrador se le ha quitado el rol de Administrador');
+
+        }else{
+            return back()->with('errorAdmin','Error no se le puede quitar el rol de Administrador por que el sitio se quedaría sin ningún administrador');
+        }
+       
+       
+    }
+
 
     public function devolver($id){
         
         
         $vehiculo = App\Vehiculo::find($id);
         $usuario = App\User::find(auth()->user()->id);
-        Mail::to('antoniojesuspv99@gmail.com')->send(new ElectrineteFactura($vehiculo,$usuario));
-                return 'ok';
+       
+                
         //$alquiler = DB::select('select * from Alquileres where user_id = ? and vehiculo_id= ?', [auth()->user()->id,$id]);
         $alquiler = Alquileres::where([
             'user_id' => auth()->user()->id,
@@ -263,7 +302,7 @@ class HomeController extends Controller
         ])->get();
         
         
-        $hora_bd=Carbon::parse($alquiler[0]->fecha);;
+        $hora_bd=Carbon::parse($alquiler[0]->fecha);
         $now = Carbon::now();
         $diferencia= $now->diffAsCarbonInterval($hora_bd);
         
@@ -280,11 +319,20 @@ class HomeController extends Controller
         if($d_minutos == 0){
             $precio = 0.16;
         }
-            
+        Mail::to(auth()->user()->email)->queue(new ElectrineteFactura($vehiculo,$usuario,$alquiler[0],$precio,$now));
     $alquiler[0]->delete();
         return view('layouts.devolver',compact('vehiculo','precio'));
            
     }
-    
+
+    public function bici(){
+        return view('bici');
+    }
+    public function bicielectrica(){
+        return view('bicielectrica');
+    }
+    public function patin(){
+        return view('patin');
+    }
 
 }

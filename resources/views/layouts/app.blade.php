@@ -18,14 +18,15 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!-- Jquery  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- CSS -->
 
-    <!-- Fonts -->
+    <!-- Letrass -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
+    <!-- MIS CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/css.css') }}" rel="stylesheet">
-</head>
+    <!-- Icono Electrinete -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('img/iconos/icono.ico')}}"/></head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -51,7 +52,6 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <a class="dropdown-item" href="#">Bicicleta normal</a>
                               <a class="dropdown-item" href="#">Bicicleta electrica</a>
-                              <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="#">Patinete Electrico</a>
                             </div>
                           </li>
@@ -60,9 +60,9 @@
                                 Tours
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="#">Tour privado en patinete electrico</a>
+                              <a class="dropdown-item" href="https://www.getyourguide.es/activity/sevilla-l48/introduccin-a-sevilla-tour-en-bicicleta-elctrica-t29009?utm_force=0">Tour privado en patinete electrico</a>
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Tour privado en Bicicleta electrica</a>
+                              <a class="dropdown-item" href="https://www.civitatis.com/es/sevilla/tour-patinete-electrico-sevilla/">Tour privado en Bicicleta electrica</a>
                               <div class="dropdown-divider"></div>
                               
                             </div>
@@ -109,7 +109,7 @@
         
 
         <main class="py-4">
-            @yield('confirmarUsuario')
+            @yield('confirmarusuario')
             @yield('confirmarVehiculo')
             @yield('login')
             @yield('home')
@@ -124,6 +124,12 @@
             @yield('alquilar')
             @yield('alquilado')
             @yield('devolver')
+            @yield('crearAdmin')
+            
+            @yield('bici')
+            @yield('bicielectrica')
+            @yield('patin')
+
 
 
         </main>
@@ -135,19 +141,18 @@
 					<h5>Pagina</h5>
 					<ul class="list-unstyled quick-links">
                
-            <li><a href="/index"><i class="fa fa-angle-double-right"></i>Inicio</a></li>
-						<li><a href=""><i class="fa fa-angle-double-right"></i>Tipos de vehiculos</a></li>
-						<li><a href=""><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-						<li><a href=""><i class="fa fa-angle-double-right"></i>Localizacion</a></li>
-						<li><a href=""><i class="fa fa-angle-double-right"></i>Videos</a></li>
+            <li><a href="/"><i class="fa fa-angle-double-right"></i>Inicio</a></li>
+						<li><a href="https://patineteelectrico.shop/blog/clasificacion-tipos-patinetes-electricos/"><i class="fa fa-angle-double-right"></i>Tipos de vehiculos</a></li>
+						<li><a href="https://www.mundopatineteelectrico.com/faq-preguntas-frecuentes-sobre-patinetes-electricos/"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<li><a href="https://www.google.es/maps/place/Sevilla/@37.3754865,-6.0250985,12z/data=!3m1!4b1!4m5!3m4!1s0xd126c1114be6291:0x34f018621cfe5648!8m2!3d37.3890924!4d-5.9844589"><i class="fa fa-angle-double-right"></i>Localizacion</a></li>
+					
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>¿Quién somos?</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href=""><i class="fa fa-angle-double-right"></i>¿Donde nos situamos?</a></li>
-						<li><a href=""><i class="fa fa-angle-double-right"></i>Patrocinadores</a></li>
-            <li><a href=""><i class="fa fa-angle-double-right"></i>Cómo funciona el servicio</a></li>
+						<li><a href="https://www.tesla.com/es_es"><i class="fa fa-angle-double-right"></i>Patrocinador</a></li>
+            <li><a href="/manual"><i class="fa fa-angle-double-right"></i>Manual de usuario</a></li>
           
 					</ul>
 				</div>
@@ -155,8 +160,8 @@
 					
 					<ul class="list-unstyled quick-links">
 						
-						<li><a href=""><i class="fa fa-angle-double-right"></i>Aviso legal </a></li>
-						<li><a href=""><i class="fa fa-angle-double-right"></i>Coookies</a></li>
+						<li><a href="/notaLegal"><i class="fa fa-angle-double-right"></i>Aviso legal </a></li>
+						<li><a href="/politica"><i class="fa fa-angle-double-right"></i>Coookies</a></li>
 						<li><a href=""><i class="fa fa-angle-double-right"></i>Borrar tus datos</a></li>
 					</ul>
 				</div>

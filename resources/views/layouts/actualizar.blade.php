@@ -1,7 +1,7 @@
 @extends('layouts.app') 
 
 @section('actualizar')
-<div class="container">
+<div class="container text-center">
     
   @if(session('exito'))
         <div class="alert alert-success">
@@ -34,7 +34,7 @@
   </tbody>
     </table>
    
-    <button type="button" onclick="location.href='/home'" class="btn btn-success">Success</button>
+    <button type="button" onclick="location.href='/home'" class="btn btn-danger">Volver</button>
     
 </div>
 @endsection

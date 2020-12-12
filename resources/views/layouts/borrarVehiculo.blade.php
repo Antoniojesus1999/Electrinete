@@ -25,7 +25,7 @@
         <th scope="row">{{$item->id}}</th>
           <td>{{$item->tipo}}</td>
           <td>{{$item->descripcion}}</td>
-          <td><img src="img/vehiculos/{{$item->img}}" width="15%"></td>
+          <td><img src="{{asset('img/vehiculos/'.$item->img)}}" width="20%"></td>
           
         <td><button type="button" class="btn btn-danger" onclick="location.href='/confirmarvehiculo/{{$item->id}}'" >Borrarr</button></td>
         </tr>
@@ -35,7 +35,7 @@
   </tbody>
     </table>
    
-    <button type="button" class="btn btn-success" onclick="location.href='/home'">Volver</button>
+    <button type="button" class="btn btn-danger" onclick="location.href='/home'">Volver</button>
 
     
 </div>

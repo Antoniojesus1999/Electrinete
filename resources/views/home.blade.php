@@ -6,10 +6,12 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
+              
                 <div class="card-header text-center">Incio de sesion como Admin :</div>
 
                 <div class="card-body text-center">
                    @auth
+                   
                         <div class="alert alert-success" role="alert">
                             Has iniciado sesion como{{auth()->user()->nombre  }}
                             {{auth()->user()->apellidos}}
@@ -63,8 +65,8 @@
                                      
                                       <div class="card-body">
                                         <h5 class="card-title">Crear</h5>
-                                        <p class="card-text"> El boton crear te ayudara a crear un usuario o vehiculo</p>
-                                        <button type="button" class="btn btn-success" onclick="location.href='/crear'"><img class="card-img-top" id="iconos" src="img/iconos/anadir.png" alt="boton crear">Crear</button>
+                                        <p class="card-text"> El boton crear te ayudara a crear un usuario o vehiculo con facilidad</p>
+                                        <button type="button" class="btn btn-success" onclick="location.href='/crear'"><img class="card-img-top" id="iconos" src="{!! asset('img/iconos/anadir.png') !!}" alt="boton crear">Crear</button>
                                       </div>
                                     </div>
                                   
@@ -75,7 +77,7 @@
                                       <div class="card-body">
                                         <h5 class="card-title">Actualizar</h5>
                                         <p class="card-text">Este boton te ayudara a actualizar los datos de un vehiculo</p>
-                                        <button type="button" class="btn btn-primary" onclick="location.href='/actualizar'"><img class="card-img-top" id="iconos"src="img/iconos/icons8-actualizar-100.png" alt="boton actualizar">Actualizar</button>
+                                        <button type="button" class="btn btn-primary" onclick="location.href='/actualizar'"><img class="card-img-top" id="iconos"src="{!! asset('img/iconos/icons8-actualizar-100.png') !!}">Actualizar</button>
                                       </div>
                                     </div>
                                   
@@ -86,12 +88,26 @@
                                   <div class="card-body">
                                     <h5 class="card-title">Borrar</h5>
                                     <p class="card-text">Con este boton podras eliminar un usuario o un vehiculo</p>
-                                    <button type="button" class="btn btn-danger" onclick="location.href='/borrar'"> <img class="card-img-top" id="iconos" src="img/iconos/cruz-entrecruzada.png" alt="boton borrar">Borrar</button>
+                                    <button type="button" class="btn btn-danger" onclick="location.href='/borrar'"> <img class="card-img-top" id="iconos"src="{!! asset('img/iconos/cruz-entrecruzada.png') !!}">Borrar</button>
+                                  </div>
+                                </div>
+
+                                  </div>  
+                                  <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                              <div class="card" >
+                                  
+                                  <div class="card-body">
+                                    <h5 class="card-title">Hacer administrador</h5>
+                                    <p class="card-text">Con este boton podras hacer que un usuario sea administrador</p>
+                                    <a href="{{route('crearAdmin')}}" class="btn btn-danger"><img class="card-img-top" id="iconos"src="{!! asset('img/iconos/anadir.png') !!}">Crear/Borrar Admin</a>
                                   </div>
                                 </div>
 
                                   </div>
                             </div>
+                            </div>
+
+                          
                                 
                                 </div>
                     @endauth

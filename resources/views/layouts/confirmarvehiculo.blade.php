@@ -8,10 +8,10 @@
 	
 	@csrf
 	<button type="submit" class="redondo btn btn-danger mr-5">
-		<i class="fas fa-trash-alt"></i> Eliminar
+		<i class="fas fa-trash-alt">Eliminar</i>
 	</button>
 	<a class="redondo btn btn-secondary" href="{{ route('borrarbd') }}">
-		<i class="fas fa-ban"></i> Cancelar
+		<i class="fas fa-trash-alt"> Cancelar</i>
 	</a>
 </form>	
 

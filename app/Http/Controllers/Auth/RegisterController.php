@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use App\Mail\MensajeDeBienvenida;
 
 class RegisterController extends Controller
 {
@@ -69,7 +70,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        
+
+        $user =User::create([
             'nombre' => $data['nombre'],
             'apellidos' => $data['apellidos'],
             'localidad' => $data['localidad'],
@@ -79,6 +82,10 @@ class RegisterController extends Controller
             'admin' => 'NO',
             'password' => Hash::make($data['password']),
         ]);
+        Mail::to($user->email)->send(new MensajeDeBienvenida($user));
+        return $user;
+
+
         /*
         return User::create([
             'name' => $data['name'],

@@ -21,7 +21,8 @@
           </div>
         </div>
       </form>
-    
+      <button type="button" class="btn btn-danger" onclick="location.href='/home'">Volver</button>
+
     @endauth
 </div>
 @endsection

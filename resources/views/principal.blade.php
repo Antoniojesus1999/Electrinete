@@ -9,7 +9,8 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
      <link rel="stylesheet" href="{{ asset('css/css.css') }}">
-      
+     <link rel="shortcut icon" type="image/x-icon"  href="{{asset('img/iconos/icono.ico')}}"/>
+
     <title>Electrinete - Pagina principal</title>
 </head>
 
@@ -17,7 +18,7 @@
 
    <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Electrinete</a>
+      <a class="navbar-brand" href="/">Electrinete</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -25,7 +26,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/index">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/precios">Precios</a>
@@ -35,10 +36,10 @@
               Tipos de vehiculos
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Bicicleta normal</a>
-              <a class="dropdown-item" href="#">Bicicleta electrica</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Patinete Electrico</a>
+              <a class="dropdown-item" href="/bici">Bicicleta normal</a>
+              <a class="dropdown-item" href="/bicielectrica">Bicicleta electrica</a>
+            
+              <a class="dropdown-item" href="/patinete">Patinete Electrico</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -46,9 +47,9 @@
                 Tours
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Tour privado en patinete electrico</a>
+              <a class="dropdown-item" href="https://www.civitatis.com/es/sevilla/tour-patinete-electrico-sevilla/">Tour privado en patinete electrico</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Tour privado en Bicicleta electrica</a>
+              <a class="dropdown-item" href="https://www.getyourguide.es/activity/sevilla-l48/introduccin-a-sevilla-tour-en-bicicleta-elctrica-t29009?utm_force=0">Tour privado en Bicicleta electrica</a>
               <div class="dropdown-divider"></div>
               
             </div>
@@ -77,6 +78,13 @@
 
 @yield('precios')
 @yield('registro')
+@yield('notaLegal')
+@yield('politica')
+@yield('manual')
+@yield('bici')
+@yield('bicielectrica')
+@yield('patinete')
+
 
 {{-- @yield('prueba') --}}
 
@@ -89,19 +97,19 @@
 					<h5>Pagina</h5>
 					<ul class="list-unstyled quick-links">
               
-            <li><a href="/index"><i class="fa fa-angle-double-right"></i>Inicio</a></li>
-						<li><a href=""><i class="fa fa-angle-double-right"></i>Tipos de vehiculos</a></li>
-						<li><a href=""><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-						<li><a href=""><i class="fa fa-angle-double-right"></i>Localizacion</a></li>
-						<li><a href=""><i class="fa fa-angle-double-right"></i>Videos</a></li>
+            <li><a href="/"><i class="fa fa-angle-double-right"></i>Inicio</a></li>
+						<li><a href="https://patineteelectrico.shop/blog/clasificacion-tipos-patinetes-electricos/"><i class="fa fa-angle-double-right"></i>Tipos de vehiculos</a></li>
+						<li><a href="https://www.mundopatineteelectrico.com/faq-preguntas-frecuentes-sobre-patinetes-electricos/"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<li><a href="https://www.google.es/maps/place/Sevilla/@37.3754865,-6.0250985,12z/data=!3m1!4b1!4m5!3m4!1s0xd126c1114be6291:0x34f018621cfe5648!8m2!3d37.3890924!4d-5.9844589"><i class="fa fa-angle-double-right"></i>Localizacion</a></li>
+						
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>¿Quién somos?</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href=""><i class="fa fa-angle-double-right"></i>¿Donde nos situamos?</a></li>
-						<li><a href=""><i class="fa fa-angle-double-right"></i>Patrocinadores</a></li>
-            <li><a href=""><i class="fa fa-angle-double-right"></i>Cómo funciona el servicio</a></li>
+						
+						<li><a href="https://www.tesla.com/es_es"><i class="fa fa-angle-double-right"></i>Patrocinador</a></li>
+            <li><a href="/manual"><i class="fa fa-angle-double-right"></i>Manual de usuario</a></li>
           
 					</ul>
 				</div>
@@ -109,8 +117,8 @@
 					
 					<ul class="list-unstyled quick-links">
 						
-						<li><a href=""><i class="fa fa-angle-double-right"></i>Aviso legal </a></li>
-						<li><a href=""><i class="fa fa-angle-double-right"></i>Coookies</a></li>
+						<li><a href="/notaLegal"><i class="fa fa-angle-double-right"></i>Aviso legal </a></li>
+						<li><a href="/politica"><i class="fa fa-angle-double-right"></i>Coookies</a></li>
 						<li><a href=""><i class="fa fa-angle-double-right"></i>Borrar tus datos</a></li>
 					</ul>
 				</div>

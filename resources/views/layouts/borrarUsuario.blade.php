@@ -2,10 +2,10 @@
 
 @section('borrarUsuario')
 <div class="container">
-  @if(session('exitoborrar'))
-        <div class="alert alert-success">
-        {{session('exitoborrar')}}
-        {{Session::forget('exitoborrar')}}
+  @if(session('errorAdmin'))
+        <div class="alert alert-danger">
+        {{session('errorAdmin')}}
+        {{Session::forget('errorAdmin')}}
         </div>
     @endif
     <table class="table">
@@ -40,7 +40,7 @@
   </tbody>
     </table>
    
-    <button type="button" class="btn btn-success" onclick="location.href='/home'" onclick="return confirm('Seguro que desea eliminar este usuario')">Volver</button>
+    <button type="button" class="btn btn-danger" onclick="location.href='/home'">Volver</button>
     
 </div>
 @endsection
