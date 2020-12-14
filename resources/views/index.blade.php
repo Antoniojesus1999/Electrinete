@@ -10,13 +10,13 @@
     </ol>
     <div class="carousel-inner" id="carrusel">
       <div class="carousel-item active">
-        <img src="{{ asset('img/electrinete.jpeg') }}"height="600px" class="d-block w-100" alt="foto principal de patinete electrico" id="ancho-carrusel">
+        <img src="{{ asset('img/pt.jpg') }}"height="600px" class="d-block w-100" alt="foto principal de patinete electrico" id="ancho-carrusel">
       </div>
       <div class="carousel-item">
         <img src="{{ asset('img/a.jpg') }}" height="600px"class="d-block w-100" alt="foto dos carrusel pagina principal">
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('img/pt.jpg') }}" height="600px" class="d-block w-100" alt="foto tres del carrusel de la pagina principal">
+        <img src="{{ asset('img/electrinete.jpeg') }}" height="600px" class="d-block w-100" alt="foto tres del carrusel de la pagina principal">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

@@ -77,9 +77,6 @@
                             <th scope="col">Descripcion</th>
                             <th scope="col">Imagen</th>
                             <th scope="col">Devolver</th>
-                          
-                            
-                            
                           </tr>
                         </thead>
                         <tbody>
@@ -100,15 +97,7 @@
                     
                     </table>
                 </div>
-
-
-
                         @endisset
-                        
-
-
-
-
                         <div class="card-header text-center bg-dark text-white mt-5">Vehiculos que estan agotados</div>
                             <div class="card-body">
                        
@@ -121,9 +110,6 @@
                                 <th scope="col">Cantidad</th>
                                 <th scope="col">Descripcion</th>
                                 <th scope="col">Imagen</th>
-                              
-                                
-                                
                               </tr>
                             </thead>
                             <tbody>
@@ -145,10 +131,6 @@
                         
                         </table>
                     </div>
-
-
-                    
-
                     @endauth
                 </div>
             </div>

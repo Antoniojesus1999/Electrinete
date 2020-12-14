@@ -7,7 +7,7 @@
         <div class="alert alert-success">
         {{session('EXIT')}}
         </div>
-    @endif  borrradoAdmin
+    @endif  
 
     @if(session('borrradoAdmin'))
     <div class="alert alert-success">

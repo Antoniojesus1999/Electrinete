@@ -179,7 +179,6 @@ class HomeController extends Controller
 
     public function borrar(Request $request){
         
-        
         return view('layouts.borrar');
     }
 
@@ -244,6 +243,9 @@ class HomeController extends Controller
             DB::insert('insert into alquileres (id, user_id,vehiculo_id,fecha,created_at,updated_at) values (?,?,?,?,?,?)', [NULL, auth()->user()->id, $vehiculo->id,$date,$date,$date ]);
             $vehiculo->update([
                 'cantidad' => $vehiculo->cantidad-1,
+            ]);
+            $usuario->update([
+                'n_alquileres' => $usuario->n_alquileres+1
             ]);
 
             return view('layouts.alquilado',compact('vehiculo','date'));
